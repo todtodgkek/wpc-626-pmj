@@ -16,10 +16,10 @@
 // -> JS 코드를 분리함!!!
 
 // 1. 대상선정 : 버튼, 이미지
-var 버튼들 = document.querySelectorAll('.btns');
-var 이미지 = document.querySelector('.photo img');
+var 버튼들 = document.querySelectorAll(".btns");
+var 이미지 = document.querySelector(".photo img");
 
-// querySelector 또는 querySelectorAll 메서드가 아니면 
+// querySelector 또는 querySelectorAll 메서드가 아니면
 // 아래처럼 많이 복잡하게 써야함!
 // ㅎㅎㅎ = document
 // .getElementsByClassName('photo').item(0)
@@ -28,39 +28,39 @@ var 이미지 = document.querySelector('.photo img');
 console.log(버튼들, 이미지);
 
 // 2. 함수만들기 /////
-var 실행해 = function(){
-    // 1. 함수호출 확인
-    console.log('버튼클릭!', this);
+var 실행해 = function () {
+  // 1. 함수호출 확인
+  console.log("버튼클릭!", this);
 
-    // this는 클릭된 버튼자신!
-    // this는 이벤트가 걸린 요소를 가리킨다!
+  // this는 클릭된 버튼자신!
+  // this는 이벤트가 걸린 요소를 가리킨다!
 
-    // 2. 클릭된 대상의 버튼글자 읽어오기
-    var 버튼글자 = this.innerText;
-    console.log('버튼글자:', 버튼글자);
+  // 2. 클릭된 대상의 버튼글자 읽어오기
+  var 버튼글자 = this.innerText;
+  console.log("버튼글자:", 버튼글자);
 
-    // 3. 기존 이미지를 왼쪽으로 사라지게 하기
-    // 클래스 off 넣기
-    이미지.classList.add('off');
+  // 3. 기존 이미지를 왼쪽으로 사라지게 하기
+  // 클래스 off 넣기
+  이미지.classList.add("off");
 
-    // 이미지 경로를 변수에 저장하기
-    var 이미지경로 = '';
+  // 이미지 경로를 변수에 저장하기
+  var 이미지경로 = "";
 
-// 4. 버튼글자에 따라 if문으로 이미지 변경하기 /////
-    if(버튼글자 === '포스터'){
-        이미지경로.src = './images/ala1.jpg';
-    } /// if ////
-    else if(버튼글자 === '장면1'){
-        이미지경로.src = './images/ala4.jpg';
-    } /// else if ////
-    else if(버튼글자 === '장면2'){   
-        이미지경로.src = './images/ala3.jpg';
-    } /// else if ////
-    else if(버튼글자 === '장면3'){
-        이미지경로.src = './images/ala2.jpg';
-    } /// else if ////
-    
-    // [ 이미지변경은 0.5초 후에 실행하기 ]
+  // 4. 버튼글자에 따라 if문으로 이미지 변경하기 /////
+  if (버튼글자 === "포스터") {
+    이미지경로 = "./images/ala1.jpg";
+  } /// if ////
+  else if (버튼글자 === "장면1") {
+    이미지경로 = "./images/ala4.jpg";
+  } /// else if ////
+  else if (버튼글자 === "장면2") {
+    이미지경로 = "./images/ala3.jpg";
+  } /// else if ////
+  else if (버튼글자 === "장면3") {
+    이미지경로 = "./images/ala2.jpg";
+  } /// else if ////
+
+  // [ 이미지변경은 0.5초 후에 실행하기 ]
   // setTimeout(함수, 시간)
   // -> 일정시간 후에 함수실행하기
   // -> 시간은 밀리세컨드 단위로 지정(1/1000초)
