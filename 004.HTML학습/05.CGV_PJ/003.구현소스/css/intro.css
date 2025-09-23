@@ -108,6 +108,9 @@ body{
 
     /* 원근설정 */
     perspective: 100vh;
+    
+    /* 트랜지션 - 2초후 작동 */
+    transition: 1s ease-in-out 2s;
 
 }
 /* 영화관문 이미지 */
@@ -118,6 +121,9 @@ body{
 
     height: 100%;
     object-fit: cover;
+
+    /* 트랜지션 - 2초후 작동 */
+    transition: 1s ease-in-out 2s;
 }
 
 /* 왼쪽문 */
@@ -151,6 +157,17 @@ body.on #myvid {
 }
 
 /* body태그에 클래스 on 셋팅시 문 열기 */
+body.on .door .left{
+    rotate: y 90deg;
+}
+body.on .door .right{
+    rotate: y -90deg;
+}
+/* body태그에 클래스 on 셋팅시 문박스 확대&사라짐 */
+body.on .door{
+    scale: 2;
+    opacity: 0;
+}
 
 
 
