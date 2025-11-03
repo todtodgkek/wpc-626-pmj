@@ -2,75 +2,64 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>클래스 선택자</title>
-    <!-- 제이쿼리 기본 라이브러리 -->
+    <title>태그 선택자</title>
+    <!-- jQuery library 가장위에 있어야함!!! -->
     <script src="../jquery-3.6.3.min.js"></script>
-    <!-- 제이쿼리 UI는 색상애니, 드래그기능 등 추가모듈 -->
-    <script src="../jquery-ui.min.js"></script>
-    <style>
-      body {
-        font-size: 4vw;
-      }
-    </style>
     <script>
-      // 배열로 색상 데이터 넣기
-      const bgColor = ["blue", "purple", "green"];
+      // 제이쿼리 함수명은? $
+      // 공식적인 제이쿼리 함수이름은 jQuery
+      // $(()=>{}) : 제이쿼리로딩구역
 
-      // 이모티콘 글자 데이터 넣기
-      const emoji = ["🎀", "🎁", "🩰"];
-
-      // 미션: 클래스가 group인 요소를 선택하여
-      // li를 클릭할 경우 배경색을 bgColor배열
-      // 변수에 있는 순서대로 나오게하시오.
-      // 글자크기는 6vw로 변경하시오.
-      // 단, transition 을 "all .6s"로
-      // 설정하여 애니메이션 되게 하시오.
-      // 그리고 개별적으로 적용되게할것!(this사용)
-
-      $(()=>{
-        // 대상: .group li
-        // 이벤트 : click
-        // -> 제이쿼리는 for문 없이 이벤트 셋팅이 가능함!
-        $(".group li").click(function(){
-          // this : .group li
-          // -> this는 클릭된 li인데 function(){}
-          // 익명함수에서는 그대로 this를 사용가능!
-          const idx = $(this).index();
-          // index() : .group li의 순번리턴!
-          console.log("idx:",idx);
-          
-          $(this).css({
-            "background-color":bgColor[idx],
-            "font-size":"6vw",
-            "transition":"all .6s"
-          }).text(emoji[idx]);
-          // text() : 태그이 데이터글자를 변경함!
-        })
-
-      }); ///// jQuery ////////
+      $(()=>{ // 아래쪽 html이 모두 로딩되면 본구역실행!
+        // [ 제이쿼리 사용법1 ]
+        // 1. 요소 선택법 : $(선택자)
+        // 2. 메서드 사용법 : $(선택자).메서드()
+        // (1) 클릭하면 메서드는? click(함수)
+        // (2) css변경 메서드는? css(속성명,값)
+        // -> 여러개의 속성을 셋팅하려면?
+        // css({속성명1:값1,속성명2:값2})
+        // 단, 속성명은 문자형/변수형 모두 가능함!
+        // 그러나 객체가 아닌 하나만 쓰면 CSS에서는
+        // 속성을 반드시 문자로만 써야함!
 
 
+        $('h2').click(()=>{
+          // #container 배경색 변경하라! pink색으로!
+          $('#container').css('background-color','pink');
 
-      // ((추가요구사항))
-      // 클릭된 li의 기존 글자를 변경하여
-      // 아이콘 모양 글자(임티)를 넣어준다
-      // 단, 배열로 3개를 만들어서 순서대로 다른
-      // 임티를 넣는다! -> 사용메서드는? text()
-      // 참고로 html변경은 html() 메서드
+          // 미션: body를 선택하여
+          // 배경색은 #ccc, 글자크기는 5vw
+          // 트랜지션은 2s 로 설정하시오.
+          $('body').css({
+            backgroundColor:'#ccc',
+            fontSize:'5vw',
+            transition:'2s'
+          });
+
+
+          // $('body').css({
+          //   'background-color':'#ccc',
+          //   'font-size':'5vw',
+          //   'transition':'2s'
+          // });
+
+        }); /// click ///
+
+      }); /// jQuery //////////////
     </script>
   </head>
 
   <body>
     <div id="container">
       <header>
-        <h2>Welcome mySite</h2>
+        <h2>여기를 클릭하시오~!!!</h2>
       </header>
 
       <nav>
-        <ul class="group">
-          <li id="first">One</li>
-          <li id="second">Two</li>
-          <li id="third">Three</li>
+        <ul class="list">
+          <li id="first"><span>One</span></li>
+          <li id="second"><span>Two</span></li>
+          <li id="third"><span>Three</span></li>
         </ul>
       </nav>
     </div>

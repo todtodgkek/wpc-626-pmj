@@ -17,15 +17,6 @@
     font-family: 'Nanum Gothic', sans-serif;
 */
 
-/* 전체 글자크기 */
-html{
-    font-size: 10px;
-    /* rem단위 계산편의를 위함 */
-}
-body{
-    /* 글자체 */
-    font-family: "Noto Sans KR", Malgun Gothic, dotum, "돋움", Arial, AppleGothic, Sans-serif;
-}
 
 /********* 공통 클래스 *********/
 /* 임시표시타이틀 */
@@ -82,6 +73,17 @@ body{
     font-weight: normal;
 }
 
+/* 공통 서브타이틀 아이콘 가상요소 */
+.stit::before {
+  content: "";
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+  vertical-align: -6px;
+  background: url(../images/icons/icon1.png) no-repeat center/cover;
+}
+
 /* IR(Images Replacement) 
 - 배경이미지 설명 숨기기 클래스 */
 .ir{
@@ -113,6 +115,19 @@ body{
     /* 스크롤바 트랙 */
     background-color: #ddd;
     border-radius: 5px;
+}
+
+
+/* 스크롤 등장 초기화 클래스1 */
+.set-it1{
+  transform: translateY(20%);
+  opacity: 0;
+  transition: 1.2s ease-in-out;
+}
+/* 스크롤 등장 클래스 .on */
+.set-it1.on{
+  transform: translateY(0);
+  opacity: 1;
 }
 
 
